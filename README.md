@@ -1,4 +1,4 @@
-# `mspDataTables` — the AngularJS directives for DataTables.net
+### `mspDataTables` — AngularJS directives for [DataTables.net](https://datatables.net/)
 
 Cover subset of DataTables.net features according example below.
 
@@ -9,13 +9,14 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
 
 <msp-data-table datasource-url="data/objects.txt" class-name="table table-striped table-bordered">
     <msp-column header="name" model-property="name"
-                template="'<i class=\'material-icons align-middle\'>person_pin</i> ' + model.name + ' (<b>' + model.id + '</b>)'">
+           template=
+           "'<i class=\'material-icons align-middle\'>person_pin</i> ' + model.name + ' (<b>' + model.id + '</b>)'">
     </msp-column>
     <msp-column header="position" model-property="position"></msp-column>
     <msp-column header="office" model-property="office">
         <msp-async-content
                 get-async-content="getAsyncContent2(id)"
-                spin-template="<i class='fas fa-spinner fa-spin'></i>">
+                spin-template=" <i class='fas fa-spinner fa-spin'></i>">
         </msp-async-content>
     </msp-column>
     <msp-column header="salary" model-property="salary" class-name="text-right"></msp-column>
@@ -43,10 +44,10 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
 ```
 angular.module('myApp', ['mspDataTable']).
 controller('MainCtrl', ["$scope", "$q", function MainCtrl($scope, $q){
-    $scope.myEventEmail = function(id){
+    $scope.onEmail = function(id){
         alert( 'EMailed to ' + id);
     };
-    $scope.myEventDelete = function(id){
+    $scope.onDelete = function(id){
         alert( 'Deleted ' + id);
     };
     $scope.getAsyncContent1 = function(id){
@@ -64,7 +65,7 @@ controller('MainCtrl', ["$scope", "$q", function MainCtrl($scope, $q){
         return $q(function(resolve, reject) {
             setTimeout(function() {
                 if (true) {
-                    resolve('City-' + id);
+                    resolve(', office ' + id);
                 } else {
                     reject('error');
                 }

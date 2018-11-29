@@ -49,17 +49,17 @@ angular
                 }
                 if (column.template) {
                     columnDef.render = function(data, type, model) {
-                        return eval(column.template) + " " + asyncContents + " " + actions;
+                        return eval(column.template) + asyncContents + actions;
                     }
                 }
                 else if ((actions || asyncContents) && column.modelProperty){
                     columnDef.render = function(data, type, model) {
-                        return data + ' ' + asyncContents + ' ' + actions;
+                        return data + asyncContents + actions;
                     }
                 }
                 else if (actions || asyncContents){
                     columnDef.render = function(data, type, model) {
-                        return asyncContents + ' ' + actions;
+                        return asyncContents + actions;
                     }
                 }
                 dtColumnDefs.push(columnDef);

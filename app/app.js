@@ -24,7 +24,7 @@ controller('MainCtrl', ["$scope", "$q", function MainCtrl($scope, $q){
         return $q(function(resolve, reject) {
             setTimeout(function() {
                 if (true) {
-                    resolve('City-' + id);
+                    resolve(', office ' + id);
                 } else {
                     reject('error');
                 }
