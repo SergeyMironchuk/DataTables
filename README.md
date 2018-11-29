@@ -9,8 +9,8 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
 
 <msp-data-table datasource-url="data/objects.txt" class-name="table table-striped table-bordered">
     <msp-column header="name" model-property="name"
-           template=
-           "'<i class=\'material-icons align-middle\'>person_pin</i> ' + model.name + ' (<b>' + model.id + '</b>)'">
+       template=
+       "'<i class=\'material-icons align-middle\'>person_pin</i> ' + model.name + ' (<b>' + model.id + '</b>)'">
     </msp-column>
     <msp-column header="position" model-property="position"></msp-column>
     <msp-column header="office" model-property="office">
