@@ -13,6 +13,7 @@
     "jquery": "^3.3.1",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
+    "datatables.net-bs4": "^1.10.19",
     "bootstrap": "^4.1.3"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
     "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
     "postupdate-deps": "npm run copy-libs",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist,datatables.net,jquery,datatables.net-dt,bootstrap}/**/*\" app/lib -C",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist,datatables.net,jquery/dist,datatables.net-dt,datatables.net-bs4,bootstrap/dist}/**/*\" app/lib -C",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install",
