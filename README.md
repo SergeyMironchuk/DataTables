@@ -39,6 +39,10 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
 </body>
 ```
 
+Nothing more required. And beautiful and enough powerful data table appear in your form.
+
+Functions related your domain logic is placed to App controller and other services.
+
 #### App Controller code:
 
 ```
