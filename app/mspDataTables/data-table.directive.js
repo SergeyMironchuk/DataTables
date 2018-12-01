@@ -140,6 +140,9 @@ angular
             this.addAsyncContent = function(asyncContent){
                 this.asyncContents.push(asyncContent);
             };
+            this.changeTemplate = function(template) {
+                $scope.template = template;
+            }
         }]
     }
 })
@@ -155,6 +158,31 @@ angular
         link: function(scope, element, attrs, columnCtrl) {
             scope.template = "<span>" + scope.template + "&nbsp;</span>";
             columnCtrl.addAction(scope);
+        }
+    }
+})
+.directive('mspColumnTemplate', function() {
+    return {
+        transclude: true,
+        require: '^^mspColumn',
+        template: '<div ng-transclude></div>',
+        restrict: 'E',
+        scope: {
+        },
+        link: function(scope, element, attrs, columnCtrl) {
+            let templateElement = element.children().first();
+            let templateText = templateElement.html().trim();
+            let leading = templateText.startsWith("[[") ? "" : "'";
+            let trailing = templateText.endsWith("]]") ? "" : "'";
+            let template = leading + templateText
+                .replace(/\"/g, "\\'")
+                .replace(/^\[\[/g, "")
+                .replace(/\]\]$/g, "")
+                .replace(/\[\[/g, "'+")
+                .replace(/\]\]/g, "+'")
+            + trailing;
+            templateElement.html("");
+            columnCtrl.changeTemplate(template);
         }
     }
 })
