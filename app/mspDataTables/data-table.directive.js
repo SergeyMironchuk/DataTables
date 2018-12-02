@@ -84,7 +84,14 @@ angular
                 if (actionId) {
                     let actionIdArray = actionId.split('_');
                     let action = scope.columns[+actionIdArray[0]].actions[+actionIdArray[1]];
-                    action.onAction({id: model.id});
+                    if (action.confirmMessage) {
+                        if (confirm(action.confirmMessage)){
+                            action.onAction({id: model.id});
+                        }
+                    }
+                    else {
+                        action.onAction({id: model.id});
+                    }
                 }
             } );
             table.on('draw', function () {
@@ -153,7 +160,8 @@ angular
         restrict: 'E',
         scope: {
             onAction: "&",
-            template: '@'
+            template: '@',
+            confirmMessage: '@'
         },
         link: function(scope, element, attrs, columnCtrl) {
             scope.template = "<span>" + scope.template + "&nbsp;</span>";

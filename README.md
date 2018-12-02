@@ -28,6 +28,7 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
         </msp-column-action>
         <msp-column-action
                 on-action="onDelete(id)"
+                confirm-message="Are you sure for delete?"
                 template="<i class='material-icons align-middle'>delete</i>">
         </msp-column-action>
         <msp-async-content
@@ -40,7 +41,7 @@ Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables
 </body>
 ```
 
-Nothing more required. And beautiful and enough powerful data table appear in your form.
+Nothing more required. And beautiful and enough powerful data table appear in your form ([mspdatatables.azurewebsites.net](https://mspdatatables.azurewebsites.net)).
 
 Functions related your domain logic is placed to App controller and other services.
 
