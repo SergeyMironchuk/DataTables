@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="app.css">
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
@@ -21,8 +22,12 @@
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
     <script src="mspDataTables/data-table.directive.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
+<div style="display: table-cell"></div>
 
 <msp-data-table datasource-url="data/objects.txt" class-name="table table-striped table-bordered">
     <msp-column header="name" model-property="name">

@@ -71,8 +71,36 @@ angular
             tableElement.DataTable( {
                 "ajax": scope.datasourceUrl,
                 "columns": dtColumns,
-                "columnDefs": dtColumnDefs
+                "columnDefs": dtColumnDefs,
+                "buttons": ['colvis'],
+                "dom": '<"row"<"col-sm-12 col-md-6 text-left"<"tableFilter">><"col-sm-12 col-md-6 text-right"<"inlineBlock"l><"inlineBlock"B>>><"actions">rt<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
 
+            });
+
+            $(".dataTables_wrapper").find('div.tableFilter').each(function(){
+                let tableFilter = $(this);
+                tableFilter.html(`
+                                <div class="filter-column pull-left inlineBlock">
+<ul class="dropdown-menu" aria-labelledby="ctl19_ctl02_ctl00_UsersDataTable_FilterColumn_btn">
+<li value="DisplayName" class="active"><a href="javascript:void(0);" onclick="BootstrapDropDownListSelect(this); ">Display Name</a></li>
+<li value="PrimaryEmailAddress"><a href="javascript:void(0);" onclick="BootstrapDropDownListSelect(this); ">E-mail Address</a></li>
+<li value="AccountName"><a href="javascript:void(0);" onclick="BootstrapDropDownListSelect(this); ">Domain Account</a></li>
+<li value="SubscriberNumber"><a href="javascript:void(0);" onclick="BootstrapDropDownListSelect(this); ">Account Number</a></li>
+<li value="UserPrincipalName"><a href="javascript:void(0);" onclick="BootstrapDropDownListSelect(this); ">Login</a></li></ul></div>
+                                
+                                <div class="clearfix search-box_datatables margin-bottom-5 metro-margin-bottom-5 inlineBlock"></div>
+                                <label class="pull-left">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                    <input type="search" class="form-control" placeholder="" aria-controls="dt_basic" data-bind="textInput: query,event: { keypress: $root.loadEnterData }">
+                                    <span class="glyphicon glyphicon-remove clear-query" data-bind="click: $root.clearQuery, visible: $root.query" style="display: none;"></span>
+                                </label>
+                `);
+            });
+
+            $(".dataTables_wrapper").find('div.inlineBlock').each(function(){
+                let inlineBlock = $(this);
+                inlineBlock.css("display", "inline-block");
+                inlineBlock.css("padding-left", "10px");
             });
 
             let table = tableElement.DataTable();
