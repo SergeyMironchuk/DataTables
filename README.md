@@ -4,7 +4,7 @@ Cover subset of DataTables.net features according example below.
 
 Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables.azurewebsites.net)
 
-```
+```JavaScript
 <body ng-app="myApp" ng-controller="MainCtrl">
 
 <msp-data-table datasource-url="data/objects.txt" class-name="table table-striped table-bordered">
