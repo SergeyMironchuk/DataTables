@@ -4,7 +4,7 @@ Cover subset of DataTables.net features according example below.
 
 Result you can see here: [mspdatatables.azurewebsites.net](https://mspdatatables.azurewebsites.net)
 
-```JavaScript
+```HTML
 <body ng-app="myApp" ng-controller="MainCtrl">
 
 <msp-data-table datasource-url="data/objects.txt" class-name="table table-striped table-bordered">
@@ -47,7 +47,7 @@ Functions related your domain logic is placed to App controller and other servic
 
 #### App Controller code:
 
-```
+```JavaScript
 angular.module('myApp', ['mspDataTable']).
 controller('MainCtrl', ["$scope", "$q", function MainCtrl($scope, $q){
     $scope.onEmail = function(id){
